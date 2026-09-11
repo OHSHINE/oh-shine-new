@@ -6,551 +6,55 @@
 
   <title>OH SHINE | Jewellery</title>
 
-  <meta
-    name="description"
-    content="OH SHINE — elegant jewellery designed to make your everyday shine."
-  >
+  <meta name="description"
+        content="OH SHINE — elegant jewellery designed to make your everyday shine.">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --cream: #f8f5ef;
-      --ivory: #fffdf9;
-      --navy: #101b2d;
-      --gold: #b08a45;
-      --text: #292724;
-      --muted: #77716a;
-      --border: #e5ded2;
-    }
-
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    button,
-    a {
-      font-family: inherit;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* HEADER */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 253, 249, 0.96);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-    }
-
-    .topbar {
-      max-width: 1400px;
-      margin: auto;
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px;
-    }
-
-    .brand {
-      font-size: 27px;
-      letter-spacing: 5px;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-      font-size: 14px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    nav a {
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: var(--gold);
-    }
-
-    .actions {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      font-size: 20px;
-    }
-
-    .menu-button {
-      display: none;
-      border: 0;
-      background: none;
-      font-size: 25px;
-      cursor: pointer;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 680px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 24px;
-      background:
-        linear-gradient(
-          rgba(16, 27, 45, 0.58),
-          rgba(16, 27, 45, 0.58)
-        ),
-        radial-gradient(circle at center, #d9c8a8, #101b2d 75%);
-      color: white;
-    }
-
-    .hero-content {
-      max-width: 760px;
-    }
-
-    .hero-small {
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      font-size: 12px;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      font-size: clamp(46px, 8vw, 88px);
-      letter-spacing: 10px;
-      font-weight: 400;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      font-style: italic;
-      margin-bottom: 38px;
-      color: #f5eee3;
-    }
-
-    .primary-button {
-      display: inline-block;
-      padding: 15px 34px;
-      border: 1px solid #d6b46d;
-      background: transparent;
-      color: white;
-      letter-spacing: 2px;
-      font-size: 12px;
-      text-transform: uppercase;
-      transition: all 0.25s ease;
-    }
-
-    .primary-button:hover {
-      background: #d6b46d;
-      color: var(--navy);
-    }
-
-    /* GENERAL */
-
-    section {
-      padding: 90px 30px;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .section-heading span {
-      display: block;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 11px;
-      margin-bottom: 10px;
-    }
-
-    .section-heading h2 {
-      font-size: 37px;
-      font-weight: 400;
-      letter-spacing: 1px;
-    }
-
-    /* CATEGORY */
-
-    .categories {
-      max-width: 1300px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
-    }
-
-    .category-card {
-      min-height: 260px;
-      display: flex;
-      align-items: end;
-      padding: 25px;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(145deg, #e9dfd0, #c8b89e);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .category-card:nth-child(2) {
-      background: linear-gradient(145deg, #e4d6c7, #b8a391);
-    }
-
-    .category-card:nth-child(3) {
-      background: linear-gradient(145deg, #ded8c8, #a79c82);
-    }
-
-    .category-card:nth-child(4) {
-      background: linear-gradient(145deg, #d9d1c5, #9f968b);
-    }
-
-    .category-card:nth-child(5) {
-      background: linear-gradient(145deg, #ead9b9, #b8945a);
-    }
-
-    .category-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .category-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        transparent 35%,
-        rgba(0,0,0,0.58)
-      );
-    }
-
-    .category-card h3 {
-      position: relative;
-      z-index: 2;
-      color: white;
-      font-size: 21px;
-      font-weight: 400;
-      letter-spacing: 1px;
-    }
-
-    /* COLLECTIONS */
-
-    .collections-section {
-      background: var(--ivory);
-    }
-
-    .collections {
-      max-width: 1300px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .collection-card {
-      min-height: 390px;
-      padding: 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #f0e6d7, #b9a58e);
-    }
-
-    .collection-card:nth-child(2) {
-      background: linear-gradient(135deg, #e7d3d2, #9d7370);
-    }
-
-    .collection-card:nth-child(3) {
-      background: linear-gradient(135deg, #deddd5, #6d706c);
-    }
-
-    .collection-card:nth-child(4) {
-      background: linear-gradient(135deg, #dce5df, #71857d);
-    }
-
-    .collection-card:nth-child(5) {
-      background: linear-gradient(135deg, #e4d0b5, #94704b);
-    }
-
-    .collection-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        transparent 30%,
-        rgba(0,0,0,0.7)
-      );
-    }
-
-    .collection-content {
-      position: relative;
-      z-index: 2;
-      color: white;
-    }
-
-    .collection-content small {
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 10px;
-    }
-
-    .collection-content h3 {
-      font-size: 28px;
-      font-weight: 400;
-      margin: 8px 0 16px;
-    }
-
-    .collection-content a {
-      display: inline-block;
-      border-bottom: 1px solid #d6b46d;
-      padding-bottom: 4px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* BRAND MESSAGE */
-
-    .brand-message {
-      background: var(--navy);
-      color: white;
-      text-align: center;
-      padding: 110px 25px;
-    }
-
-    .brand-message h2 {
-      font-size: clamp(32px, 5vw, 55px);
-      font-weight: 400;
-      font-style: italic;
-      margin-bottom: 18px;
-    }
-
-    .brand-message p {
-      color: #d9d2c7;
-      max-width: 650px;
-      margin: auto;
-      font-size: 15px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #0b1320;
-      color: #e9e3d9;
-      padding: 65px 30px 25px;
-    }
-
-    .footer-grid {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 50px;
-    }
-
-    .footer-brand h3 {
-      font-size: 25px;
-      letter-spacing: 5px;
-      font-weight: 400;
-      margin-bottom: 15px;
-    }
-
-    .footer-brand p {
-      color: #aaa59d;
-      max-width: 330px;
-      font-size: 14px;
-    }
-
-    footer h4 {
-      color: #d6b46d;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    footer ul {
-      list-style: none;
-    }
-
-    footer li {
-      margin-bottom: 9px;
-      font-size: 13px;
-      color: #aaa59d;
-    }
-
-    .copyright {
-      max-width: 1200px;
-      margin: 50px auto 0;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      text-align: center;
-      font-size: 11px;
-      color: #77736d;
-      letter-spacing: 1px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 900px) {
-
-      nav {
-        display: none;
-      }
-
-      .menu-button {
-        display: block;
-      }
-
-      .topbar {
-        padding: 0 20px;
-      }
-
-      .brand {
-        font-size: 22px;
-        letter-spacing: 4px;
-      }
-
-      .categories {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .collections {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .collection-card {
-        min-height: 330px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-
-      section {
-        padding: 65px 18px;
-      }
-
-      .hero {
-        min-height: 590px;
-      }
-
-      .hero h1 {
-        font-size: 43px;
-        letter-spacing: 6px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .categories {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-      }
-
-      .category-card {
-        min-height: 190px;
-        padding: 18px;
-      }
-
-      .category-card h3 {
-        font-size: 16px;
-      }
-
-      .collections {
-        grid-template-columns: 1fr;
-      }
-
-      .collection-card {
-        min-height: 350px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- ================= HEADER ================= -->
 
-  <header>
-    <div class="topbar">
+  <header class="site-header">
 
-      <button class="menu-button" aria-label="Open menu">
-        ☰
-      </button>
+    <a href="#home" class="brand-name">OH SHINE</a>
 
-      <div class="brand">
-        OH SHINE
-      </div>
+    <nav class="main-nav">
+      <a href="#home">Home</a>
+      <a href="#collections">Collections</a>
+      <a href="#explore">Explore</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-      <nav>
-        <a href="#">Home</a>
-        <a href="#categories">Shop</a>
-        <a href="#collections">Collections</a>
-        <a href="#new">New Arrivals</a>
-        <a href="#about">About</a>
-      </nav>
+    <button class="menu-button"
+            aria-label="Open menu"
+            aria-expanded="false">
+      ☰
+    </button>
 
-      <div class="actions">
-        <span>⌕</span>
-        <span>♡</span>
-        <span>🛍</span>
-      </div>
-
-    </div>
   </header>
 
 
-  <!-- HERO -->
+  <!-- ================= HERO ================= -->
 
   <main>
 
-    <section class="hero">
+    <section id="home" class="hero">
 
       <div class="hero-content">
 
-        <div class="hero-small">
-          Jewellery • Elegance • You
-        </div>
+        <p class="eyebrow">THE ART OF EVERYDAY ELEGANCE</p>
 
         <h1>OH SHINE</h1>
 
-        <p>
-          The shine was always within you.
+        <p class="hero-text">
+          Jewellery that lets your own shine take centre stage.
         </p>
 
         <a href="#collections" class="primary-button">
-          Shop Collection
+          Explore Collection
         </a>
 
       </div>
@@ -558,167 +62,379 @@
     </section>
 
 
-    <!-- CATEGORIES -->
+    <!-- ================= COLLECTIONS ================= -->
 
-    <section id="categories">
-
-      <div class="section-heading">
-        <span>Discover</span>
-        <h2>Shop by Category</h2>
-      </div>
-
-      <div class="categories">
-
-        <a class="category-card" href="#collections">
-          <h3>Earrings</h3>
-        </a>
-
-        <a class="category-card" href="#collections">
-          <h3>Necklaces</h3>
-        </a>
-
-        <a class="category-card" href="#collections">
-          <h3>Bangles</h3>
-        </a>
-
-        <a class="category-card" href="#collections">
-          <h3>Bracelets</h3>
-        </a>
-
-        <a class="category-card" href="#collections">
-          <h3>Hair Accessories</h3>
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- COLLECTIONS -->
-
-    <section id="collections" class="collections-section">
+    <section id="collections" class="section">
 
       <div class="section-heading">
-        <span>Curated for you</span>
-        <h2>Explore Our Collections</h2>
+
+        <p class="eyebrow">CURATED FOR YOU</p>
+
+        <h2>Our Collections</h2>
+
+        <p>
+          Discover pieces for everyday moments, celebrations and everything
+          in between.
+        </p>
+
       </div>
 
-      <div class="collections">
 
-        <article class="collection-card">
+      <div class="collection-grid">
+
+        <a href="#explore" class="collection-card">
+          <div class="collection-image crystal-image"></div>
           <div class="collection-content">
-            <small>Collection 01</small>
             <h3>Crystal Earrings</h3>
-            <a href="#">Explore Collection →</a>
+            <span>Explore</span>
           </div>
-        </article>
+        </a>
 
-        <article class="collection-card">
+        <a href="#explore" class="collection-card">
+          <div class="collection-image kashmiri-image"></div>
           <div class="collection-content">
-            <small>Collection 02</small>
-            <h3>Ethnic Collection</h3>
-            <a href="#">Explore Collection →</a>
-          </div>
-        </article>
-
-        <article class="collection-card">
-          <div class="collection-content">
-            <small>Collection 03</small>
-            <h3>Oxidised Collection</h3>
-            <a href="#">Explore Collection →</a>
-          </div>
-        </article>
-
-        <article class="collection-card">
-          <div class="collection-content">
-            <small>Collection 04</small>
-            <h3>Anti-Tarnish Collection</h3>
-            <a href="#">Explore Collection →</a>
-          </div>
-        </article>
-
-        <article class="collection-card">
-          <div class="collection-content">
-            <small>Collection 05</small>
             <h3>Kashmiri Bangles</h3>
-            <a href="#">Explore Collection →</a>
+            <span>Explore</span>
           </div>
-        </article>
+        </a>
+
+        <a href="#explore" class="collection-card">
+          <div class="collection-image ethnic-image"></div>
+          <div class="collection-content">
+            <h3>Ethnic Jewellery</h3>
+            <span>Explore</span>
+          </div>
+        </a>
+
+        <a href="#explore" class="collection-card">
+          <div class="collection-image oxidised-image"></div>
+          <div class="collection-content">
+            <h3>Oxidised Jewellery</h3>
+            <span>Explore</span>
+          </div>
+        </a>
+
+        <a href="#explore" class="collection-card">
+          <div class="collection-image necklace-image"></div>
+          <div class="collection-content">
+            <h3>Necklaces</h3>
+            <span>Explore</span>
+          </div>
+        </a>
+
+        <a href="#explore" class="collection-card">
+          <div class="collection-image bracelet-image"></div>
+          <div class="collection-content">
+            <h3>Bracelets</h3>
+            <span>Explore</span>
+          </div>
+        </a>
 
       </div>
 
     </section>
 
 
-    <!-- BRAND MESSAGE -->
+    <!-- ================= EXPLORE ================= -->
 
-    <section id="about" class="brand-message">
+    <section id="explore" class="section explore-section">
 
-      <h2>The shine was always within you.</h2>
+      <div class="section-heading">
+
+        <p class="eyebrow">THE OH SHINE EDIT</p>
+
+        <h2>Explore Jewellery</h2>
+
+        <p>
+          Choose a collection and discover your next favourite piece.
+        </p>
+
+      </div>
+
+
+      <div class="filter-bar">
+
+        <button class="filter-button active"
+                data-category="all">
+          All
+        </button>
+
+        <button class="filter-button"
+                data-category="crystal">
+          Crystal Earrings
+        </button>
+
+        <button class="filter-button"
+                data-category="kashmiri">
+          Kashmiri Bangles
+        </button>
+
+        <button class="filter-button"
+                data-category="ethnic">
+          Ethnic Jewellery
+        </button>
+
+        <button class="filter-button"
+                data-category="oxidised">
+          Oxidised Jewellery
+        </button>
+
+        <button class="filter-button"
+                data-category="necklaces">
+          Necklaces
+        </button>
+
+        <button class="filter-button"
+                data-category="bracelets">
+          Bracelets
+        </button>
+
+      </div>
+
+
+      <!--
+        PRODUCT IMAGES WILL BE CONNECTED TO YOUR
+        ALREADY-PREPARED BATCH FILES.
+
+        DO NOT UPLOAD DUPLICATE IMAGES HERE.
+      -->
+
+      <div id="product-grid" class="product-grid">
+
+        <div class="product-card" data-category="crystal">
+          <div class="product-placeholder">
+            Crystal Earrings
+          </div>
+          <h3>Crystal Earrings</h3>
+          <p>View Collection</p>
+        </div>
+
+        <div class="product-card" data-category="kashmiri">
+          <div class="product-placeholder">
+            Kashmiri Bangles
+          </div>
+          <h3>Kashmiri Bangles</h3>
+          <p>View Collection</p>
+        </div>
+
+        <div class="product-card" data-category="ethnic">
+          <div class="product-placeholder">
+            Ethnic Jewellery
+          </div>
+          <h3>Ethnic Jewellery</h3>
+          <p>View Collection</p>
+        </div>
+
+        <div class="product-card" data-category="oxidised">
+          <div class="product-placeholder">
+            Oxidised Jewellery
+          </div>
+          <h3>Oxidised Jewellery</h3>
+          <p>View Collection</p>
+        </div>
+
+        <div class="product-card" data-category="necklaces">
+          <div class="product-placeholder">
+            Necklaces
+          </div>
+          <h3>Necklaces</h3>
+          <p>View Collection</p>
+        </div>
+
+        <div class="product-card" data-category="bracelets">
+          <div class="product-placeholder">
+            Bracelets
+          </div>
+          <h3>Bracelets</h3>
+          <p>View Collection</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= BRAND STORY ================= -->
+
+    <section id="about" class="about-section">
+
+      <div class="about-inner">
+
+        <p class="eyebrow">THE OH SHINE STORY</p>
+
+        <h2>The shine was always within you.</h2>
+
+        <p>
+          At OH SHINE, jewellery is more than an accessory.
+          It is a little reminder of your individuality, confidence
+          and the moments that make you feel beautiful.
+        </p>
+
+        <p>
+          From delicate everyday pieces to statement jewellery,
+          every collection is curated to help you express your own style.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SOCIAL ================= -->
+
+    <section class="social-section">
+
+      <p class="eyebrow">FOLLOW THE SHINE</p>
+
+      <h2>Stay connected with OH SHINE</h2>
+
+      <div class="social-links">
+
+        <a href="https://www.instagram.com/ohshine_jewellery/"
+           target="_blank"
+           rel="noopener">
+          Instagram
+        </a>
+
+        <a href="https://www.youtube.com/channel/UCRIg6CRYSsBjYlVrfBsVDFg"
+           target="_blank"
+           rel="noopener">
+          YouTube
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section id="contact" class="contact-section">
+
+      <p class="eyebrow">CONNECT WITH US</p>
+
+      <h2>Let your style shine.</h2>
 
       <p>
-        Jewellery is more than an accessory.
-        It is a reflection of your personality,
-        your moments and your individual shine.
+        Discover the latest OH SHINE collections through our social channels.
       </p>
+
+      <a href="https://www.instagram.com/ohshine_jewellery/"
+         target="_blank"
+         rel="noopener"
+         class="primary-button">
+        Visit Instagram
+      </a>
 
     </section>
 
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- ================= FOOTER ================= -->
 
-  <footer>
+  <footer class="site-footer">
 
-    <div class="footer-grid">
-
-      <div class="footer-brand">
-        <h3>OH SHINE</h3>
-        <p>
-          Elegant jewellery curated to celebrate
-          your individual style and everyday shine.
-        </p>
-      </div>
-
-      <div>
-        <h4>Shop</h4>
-        <ul>
-          <li>Earrings</li>
-          <li>Necklaces</li>
-          <li>Bangles</li>
-          <li>Bracelets</li>
-          <li>Hair Accessories</li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>Collections</h4>
-        <ul>
-          <li>Crystal Earrings</li>
-          <li>Ethnic Collection</li>
-          <li>Oxidised Collection</li>
-          <li>Anti-Tarnish Collection</li>
-          <li>Kashmiri Bangles</li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>Follow</h4>
-        <ul>
-          <li>Instagram</li>
-          <li>YouTube</li>
-          <li>Contact Us</li>
-        </ul>
-      </div>
-
+    <div class="footer-brand">
+      <h2>OH SHINE</h2>
+      <p>Elegant jewellery for your everyday shine.</p>
     </div>
 
-    <div class="copyright">
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#collections">Collections</a>
+      <a href="#explore">Explore</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.instagram.com/ohshine_jewellery/"
+         target="_blank"
+         rel="noopener">
+        @ohshine_jewellery
+      </a>
+
+      <a href="https://www.youtube.com/channel/UCRIg6CRYSsBjYlVrfBsVDFg"
+         target="_blank"
+         rel="noopener">
+        @OHSHINE_2026
+      </a>
+    </div>
+
+    <p class="copyright">
       © 2026 OH SHINE. All rights reserved.
-    </div>
+    </p>
 
   </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script src="js/script.js"></script>
+
+  <script>
+
+    /* Mobile navigation */
+
+    const menuButton = document.querySelector(".menu-button");
+    const navigation = document.querySelector(".main-nav");
+
+    if (menuButton && navigation) {
+
+      menuButton.addEventListener("click", function () {
+
+        const open = navigation.classList.toggle("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          open ? "true" : "false"
+        );
+
+      });
+
+    }
+
+
+    /* Collection filtering */
+
+    const filterButtons =
+      document.querySelectorAll(".filter-button");
+
+    const productCards =
+      document.querySelectorAll(".product-card");
+
+    filterButtons.forEach(function(button) {
+
+      button.addEventListener("click", function() {
+
+        filterButtons.forEach(function(item) {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const category =
+          button.getAttribute("data-category");
+
+        productCards.forEach(function(card) {
+
+          if (
+            category === "all" ||
+            card.getAttribute("data-category") === category
+          ) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+
+        });
+
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
