@@ -1,440 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Oh! Shine — premium jewellery for everyday elegance, festive occasions and timeless style.">
+<title>Oh! Shine | Premium Jewellery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fbf5f0;
+  --cream2:#f4e9e1;
+  --brown:#9b6938;
+  --brown-dark:#654125;
+  --gold:#b78a4a;
+  --ink:#2f2118;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Montserrat,Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,245,240,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(155,105,56,.16)}
+.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:"Cormorant Garamond",serif;font-size:34px;letter-spacing:3px;font-weight:600;color:var(--brown-dark)}
+.nav-links{display:flex;gap:28px;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.nav-links a:hover{color:var(--brown)}
+.menu{display:none;background:none;border:0;font-size:25px;color:var(--brown-dark)}
+.hero{min-height:78vh;display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:50px;padding:60px 0 70px}
+.hero-copy .eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--brown);margin-bottom:18px}
+.hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(54px,7vw,92px);line-height:.88;margin:0 0 25px;font-weight:500;color:var(--brown-dark)}
+.hero h1 span{display:block;font-style:italic}
+.hero p{max-width:520px;line-height:1.9;color:#6f5b4a;font-size:15px}
+.btn{display:inline-block;margin-top:20px;padding:14px 28px;border-radius:30px;background:var(--brown);color:white;font-size:12px;letter-spacing:1.8px;text-transform:uppercase;box-shadow:0 10px 25px rgba(101,65,37,.18)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(101,65,37,.23)}
+.hero-art{position:relative;display:flex;justify-content:center}
+.hero-art:before{content:"";position:absolute;inset:5% 8%;background:radial-gradient(circle at 50% 45%,#ead7c5,transparent 65%);filter:blur(5px)}
+.hero-art img{position:relative;width:min(480px,90%);border-radius:4px;box-shadow:0 28px 70px rgba(73,45,24,.2)}
+.section{padding:85px 0}
+.section-head{text-align:center;margin-bottom:45px}
+.section-head .eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--brown)}
+.section-head h2{font-family:"Cormorant Garamond",serif;font-size:52px;font-weight:500;margin:8px 0;color:var(--brown-dark)}
+.section-head p{color:#7b695a;max-width:620px;margin:auto;line-height:1.7;font-size:14px}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:white;border:1px solid rgba(155,105,56,.13);overflow:hidden;box-shadow:0 12px 35px rgba(73,45,24,.07);transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(73,45,24,.12)}
+.card img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+.card-body{padding:17px 18px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card h3{font-family:"Cormorant Garamond",serif;font-size:25px;margin:0;font-weight:600;color:var(--brown-dark)}
+.card small{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--brown)}
+.story{background:#2b142f;color:white}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.story h2{font-family:"Cormorant Garamond",serif;font-size:58px;line-height:.95;font-weight:500;margin:12px 0 20px}
+.story p{line-height:1.9;color:#eaded7;font-size:14px}
+.story .quote{font-family:"Cormorant Garamond",serif;font-size:31px;font-style:italic;color:#e4bd7d;margin-top:25px}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+.value{padding:25px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04)}
+.value strong{font-family:"Cormorant Garamond",serif;font-size:25px;color:#e4bd7d}
+.value p{margin:8px 0 0;font-size:12px;line-height:1.7}
+.contact{padding:85px 0;text-align:center}
+.contact h2{font-family:"Cormorant Garamond",serif;font-size:55px;font-weight:500;color:var(--brown-dark);margin:8px}
+.contact p{color:#725e4e;line-height:1.8}
+.contact-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn.alt{background:transparent;color:var(--brown-dark);border:1px solid var(--brown)}
+.footer{background:#20101f;color:#e8ddd7;padding:35px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.footer .brand{color:#e4bd7d;font-size:28px}
+.footer p{font-size:11px;letter-spacing:.5px;color:#bcaea7}
+@media(max-width:850px){
+  .nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--cream);padding:20px;flex-direction:column;gap:18px;border-bottom:1px solid rgba(155,105,56,.15)}
+  .nav-links.open{display:flex}.menu{display:block}
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:40px}.hero p{margin:auto}.hero-art{order:-1}
+  .categories{grid-template-columns:repeat(2,1fr)}
+  .story-grid{grid-template-columns:1fr}.story{text-align:center}.values{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .categories{grid-template-columns:1fr}.section{padding:60px 0}.hero h1{font-size:58px}
+  .section-head h2,.contact h2{font-size:43px}.story h2{font-size:48px}
+  .footer-inner{flex-direction:column;text-align:center}
+}
 
-  <title>OH SHINE | Jewellery</title>
-
-  <meta name="description"
-        content="OH SHINE — elegant jewellery designed to make your everyday shine.">
-
-  <link rel="stylesheet" href="css/style.css">
+.catalogue-section{padding:85px 0;background:#f7eee7;display:none}.catalogue-section.show{display:block}.catalogue-toolbar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 auto 35px}.filter-btn{border:1px solid rgba(155,105,56,.35);background:#fff;color:var(--brown-dark);padding:10px 18px;border-radius:24px;font-size:11px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}.filter-btn.active,.filter-btn:hover{background:var(--brown);color:#fff}.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.product-card{background:#fff;border:1px solid rgba(155,105,56,.13);box-shadow:0 10px 30px rgba(73,45,24,.07);overflow:hidden}.product-card img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}.product-info{padding:14px 15px 16px}.product-info .category{font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:var(--brown)}.product-info h3{font-family:"Cormorant Garamond",serif;font-size:22px;margin:5px 0 0;color:var(--brown-dark);font-weight:600}.catalogue-empty{text-align:center;padding:40px 15px;color:#7b695a;line-height:1.8}.catalogue-close{display:block;margin:0 auto 25px;border:0;background:transparent;color:var(--brown-dark);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer}@media(max-width:1000px){.products-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:700px){.products-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.products-grid{grid-template-columns:1fr}.catalogue-section{padding:60px 0}}
+</style>
 </head>
-
 <body>
-
-  <!-- ================= HEADER ================= -->
-
-  <header class="site-header">
-
-    <a href="#home" class="brand-name">OH SHINE</a>
-
-    <nav class="main-nav">
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#home">OH SHINE</a>
+    <button class="menu" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#collections">Collections</a>
-      <a href="#explore">Explore</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <button class="menu-button"
-            aria-label="Open menu"
-            aria-expanded="false">
-      ☰
-    </button>
-
-  </header>
-
-
-  <!-- ================= HERO ================= -->
-
-  <main>
-
-    <section id="home" class="hero">
-
-      <div class="hero-content">
-
-        <p class="eyebrow">THE ART OF EVERYDAY ELEGANCE</p>
-
-        <h1>OH SHINE</h1>
-
-        <p class="hero-text">
-          Jewellery that lets your own shine take centre stage.
-        </p>
-
-        <a href="#collections" class="primary-button">
-          Explore Collection
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= COLLECTIONS ================= -->
-
-    <section id="collections" class="section">
-
-      <div class="section-heading">
-
-        <p class="eyebrow">CURATED FOR YOU</p>
-
-        <h2>Our Collections</h2>
-
-        <p>
-          Discover pieces for everyday moments, celebrations and everything
-          in between.
-        </p>
-
-      </div>
-
-
-      <div class="collection-grid">
-
-        <a href="#explore" class="collection-card">
-          <div class="collection-image crystal-image"></div>
-          <div class="collection-content">
-            <h3>Crystal Earrings</h3>
-            <span>Explore</span>
-          </div>
-        </a>
-
-        <a href="#explore" class="collection-card">
-          <div class="collection-image kashmiri-image"></div>
-          <div class="collection-content">
-            <h3>Kashmiri Bangles</h3>
-            <span>Explore</span>
-          </div>
-        </a>
-
-        <a href="#explore" class="collection-card">
-          <div class="collection-image ethnic-image"></div>
-          <div class="collection-content">
-            <h3>Ethnic Jewellery</h3>
-            <span>Explore</span>
-          </div>
-        </a>
-
-        <a href="#explore" class="collection-card">
-          <div class="collection-image oxidised-image"></div>
-          <div class="collection-content">
-            <h3>Oxidised Jewellery</h3>
-            <span>Explore</span>
-          </div>
-        </a>
-
-        <a href="#explore" class="collection-card">
-          <div class="collection-image necklace-image"></div>
-          <div class="collection-content">
-            <h3>Necklaces</h3>
-            <span>Explore</span>
-          </div>
-        </a>
-
-        <a href="#explore" class="collection-card">
-          <div class="collection-image bracelet-image"></div>
-          <div class="collection-content">
-            <h3>Bracelets</h3>
-            <span>Explore</span>
-          </div>
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= EXPLORE ================= -->
-
-    <section id="explore" class="section explore-section">
-
-      <div class="section-heading">
-
-        <p class="eyebrow">THE OH SHINE EDIT</p>
-
-        <h2>Explore Jewellery</h2>
-
-        <p>
-          Choose a collection and discover your next favourite piece.
-        </p>
-
-      </div>
-
-
-      <div class="filter-bar">
-
-        <button class="filter-button active"
-                data-category="all">
-          All
-        </button>
-
-        <button class="filter-button"
-                data-category="crystal">
-          Crystal Earrings
-        </button>
-
-        <button class="filter-button"
-                data-category="kashmiri">
-          Kashmiri Bangles
-        </button>
-
-        <button class="filter-button"
-                data-category="ethnic">
-          Ethnic Jewellery
-        </button>
-
-        <button class="filter-button"
-                data-category="oxidised">
-          Oxidised Jewellery
-        </button>
-
-        <button class="filter-button"
-                data-category="necklaces">
-          Necklaces
-        </button>
-
-        <button class="filter-button"
-                data-category="bracelets">
-          Bracelets
-        </button>
-
-      </div>
-
-
-      <!--
-        PRODUCT IMAGES WILL BE CONNECTED TO YOUR
-        ALREADY-PREPARED BATCH FILES.
-
-        DO NOT UPLOAD DUPLICATE IMAGES HERE.
-      -->
-
-      <div id="product-grid" class="product-grid">
-
-        <div class="product-card" data-category="crystal">
-          <div class="product-placeholder">
-            Crystal Earrings
-          </div>
-          <h3>Crystal Earrings</h3>
-          <p>View Collection</p>
-        </div>
-
-        <div class="product-card" data-category="kashmiri">
-          <div class="product-placeholder">
-            Kashmiri Bangles
-          </div>
-          <h3>Kashmiri Bangles</h3>
-          <p>View Collection</p>
-        </div>
-
-        <div class="product-card" data-category="ethnic">
-          <div class="product-placeholder">
-            Ethnic Jewellery
-          </div>
-          <h3>Ethnic Jewellery</h3>
-          <p>View Collection</p>
-        </div>
-
-        <div class="product-card" data-category="oxidised">
-          <div class="product-placeholder">
-            Oxidised Jewellery
-          </div>
-          <h3>Oxidised Jewellery</h3>
-          <p>View Collection</p>
-        </div>
-
-        <div class="product-card" data-category="necklaces">
-          <div class="product-placeholder">
-            Necklaces
-          </div>
-          <h3>Necklaces</h3>
-          <p>View Collection</p>
-        </div>
-
-        <div class="product-card" data-category="bracelets">
-          <div class="product-placeholder">
-            Bracelets
-          </div>
-          <h3>Bracelets</h3>
-          <p>View Collection</p>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= BRAND STORY ================= -->
-
-    <section id="about" class="about-section">
-
-      <div class="about-inner">
-
-        <p class="eyebrow">THE OH SHINE STORY</p>
-
-        <h2>The shine was always within you.</h2>
-
-        <p>
-          At OH SHINE, jewellery is more than an accessory.
-          It is a little reminder of your individuality, confidence
-          and the moments that make you feel beautiful.
-        </p>
-
-        <p>
-          From delicate everyday pieces to statement jewellery,
-          every collection is curated to help you express your own style.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= SOCIAL ================= -->
-
-    <section class="social-section">
-
-      <p class="eyebrow">FOLLOW THE SHINE</p>
-
-      <h2>Stay connected with OH SHINE</h2>
-
-      <div class="social-links">
-
-        <a href="https://www.instagram.com/ohshine_jewellery/"
-           target="_blank"
-           rel="noopener">
-          Instagram
-        </a>
-
-        <a href="https://www.youtube.com/channel/UCRIg6CRYSsBjYlVrfBsVDFg"
-           target="_blank"
-           rel="noopener">
-          YouTube
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= CONTACT ================= -->
-
-    <section id="contact" class="contact-section">
-
-      <p class="eyebrow">CONNECT WITH US</p>
-
-      <h2>Let your style shine.</h2>
-
-      <p>
-        Discover the latest OH SHINE collections through our social channels.
-      </p>
-
-      <a href="https://www.instagram.com/ohshine_jewellery/"
-         target="_blank"
-         rel="noopener"
-         class="primary-button">
-        Visit Instagram
-      </a>
-
-    </section>
-
-  </main>
-
-
-  <!-- ================= FOOTER ================= -->
-
-  <footer class="site-footer">
-
-    <div class="footer-brand">
-      <h2>OH SHINE</h2>
-      <p>Elegant jewellery for your everyday shine.</p>
-    </div>
-
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="#collections">Collections</a>
-      <a href="#explore">Explore</a>
-      <a href="#about">About</a>
+      <a href="#story">Our Story</a>
       <a href="#contact">Contact</a>
     </div>
+  </div>
+</nav>
 
-    <div class="footer-social">
-      <a href="https://www.instagram.com/ohshine_jewellery/"
-         target="_blank"
-         rel="noopener">
-        @ohshine_jewellery
-      </a>
+<main>
+<section id="home" class="container hero">
+  <div class="hero-copy">
+    <div class="eyebrow">Premium Jewellery</div>
+    <h1>Everyday <span>Elegance.</span></h1>
+    <p>Discover jewellery designed to make every moment feel a little more special — from effortless everyday pieces to traditional treasures and statement styles.</p>
+    <a class="btn" href="#collections">Explore Collections</a>
+  </div>
+  <div class="hero-art"><img src="assets/images/logo.jpg" alt="Oh Shine Premium Jewellery logo"></div>
+</section>
 
-      <a href="https://www.youtube.com/channel/UCRIg6CRYSsBjYlVrfBsVDFg"
-         target="_blank"
-         rel="noopener">
-        @OHSHINE_2026
-      </a>
+<section id="collections" class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Curated for you</div>
+      <h2>Our Collections</h2>
+      <p>Find your next favourite piece from our signature jewellery and accessory collections.</p>
     </div>
+    <div class="categories">
+      <a class="card" href="#catalogue" onclick="openCatalogue('daily');return false;"><img src="assets/images/dailywear-earrings.png" alt="Dailywear Earrings"><div class="card-body"><h3>Dailywear Earrings</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('ethnic');return false;"><img src="assets/images/ethnic-earrings.png" alt="Ethnic Earrings"><div class="card-body"><h3>Ethnic Earrings</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('rings');return false;"><img src="assets/images/finger-rings.png" alt="Finger Rings"><div class="card-body"><h3>Finger Rings</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('ad');return false;"><img src="assets/images/american-diamond.png" alt="American Diamond Collection"><div class="card-body"><h3>American Diamond</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('hair');return false;"><img src="assets/images/hair-accessories.png" alt="Hair Accessories"><div class="card-body"><h3>Hair Accessories</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('bangles');return false;"><img src="assets/images/kashmiri-bangles.png" alt="Kashmiri Bangles"><div class="card-body"><h3>Kashmiri Bangles</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('timeless');return false;"><img src="assets/images/timeless-earrings.png" alt="Timeless Earrings"><div class="card-body"><h3>Timeless Earrings</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('necklace');return false;"><img src="assets/images/anti-tarnish-necklace.png" alt="Anti Tarnish Necklace"><div class="card-body"><h3>Anti-Tarnish Necklaces</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('oxidised');return false;"><img src="assets/images/oxidised-earrings.png" alt="Oxidised Earrings"><div class="card-body"><h3>Oxidised Necklace &amp; Earrings Set</h3><small>Explore</small></div></a>
+    </div>
+  </div>
+</section>
 
-    <p class="copyright">
-      © 2026 OH SHINE. All rights reserved.
-    </p>
+<section id="catalogue" class="catalogue-section">
+  <div class="container">
+    <button class="catalogue-close" onclick="closeCatalogue()">← Back to collections</button>
+    <div class="section-head">
+      <div class="eyebrow">Oh! Shine catalogue</div>
+      <h2 id="catalogue-title">Our Products</h2>
+      <p>Explore our available designs. Select another collection below to browse more pieces.</p>
+    </div>
+    <div class="catalogue-toolbar">
+      <button class="filter-btn" data-filter="daily">Dailywear</button><button class="filter-btn" data-filter="ethnic">Ethnic</button><button class="filter-btn" data-filter="ad">American Diamond</button><button class="filter-btn" data-filter="timeless">Timeless</button><button class="filter-btn" data-filter="oxidised">Oxidised</button><button class="filter-btn" data-filter="necklace">Necklaces & Bracelets</button><button class="filter-btn" data-filter="rings">Finger Rings</button><button class="filter-btn" data-filter="hair">Hair Accessories</button><button class="filter-btn" data-filter="bangles">Kashmiri Bangles</button>
+    </div>
+    <div id="products-grid" class="products-grid">
+<article class="product-card" data-category="daily"><img src="assets/images/batch-1/batch-1-earrings-01.jpg" alt="Oh Shine Dailywear Earring 1"><div class="product-info"><div class="category">Dailywear Earrings</div><h3>Elegant Gold Statement Earring</h3></div></article>
+<article class="product-card" data-category="daily"><img src="assets/images/batch-1/batch-1-earrings-02.jpg" alt="Oh Shine Dailywear Earring 2"><div class="product-info"><div class="category">Dailywear Earrings</div><h3>Crystal &amp; Pearl Drop Earring</h3></div></article>
+<article class="product-card" data-category="daily"><img src="assets/images/batch-1/batch-1-earrings-03.jpg" alt="Oh Shine Dailywear Earring 3"><div class="product-info"><div class="category">Dailywear Earrings</div><h3>Modern Gold Floral Earring</h3></div></article>
+<article class="product-card" data-category="daily"><img src="assets/images/batch-1/batch-1-earrings-04.jpg" alt="Oh Shine Dailywear Earring 4"><div class="product-info"><div class="category">Dailywear Earrings</div><h3>Minimal Gold Leaf Earring</h3></div></article>
+<article class="product-card" data-category="daily"><img src="assets/images/batch-1/batch-1-earrings-05.jpg" alt="Oh Shine Dailywear Earring 5"><div class="product-info"><div class="category">Dailywear Earrings</div><h3>Elegant Heart Drop Earring</h3></div></article>
+<article class="product-card" data-category="daily"><img src="assets/images/batch-1/batch-1-earrings-06.jpg" alt="Oh Shine Dailywear Earring 6"><div class="product-info"><div class="category">Dailywear Earrings</div><h3>Floral Crystal Drop Earring</h3></div></article>
+<article class="product-card" data-category="daily"><img src="assets/images/batch-1/batch-1-earrings-07.jpg" alt="Oh Shine Dailywear Earring 7"><div class="product-info"><div class="category">Dailywear Earrings</div><h3>Long Gold Butterfly Earring</h3></div></article>
+</div><h3>Long Gold Fan Drop Earrings</h3></div></article>
+<article class="product-card" data-category="daily"><img src="p2.png" alt="Golden Wing Drop Earrings"><div class="product-info"><div class="category">Dailywear Earrings</div><h3>Golden Wing Drop Earrings</h3></div></article>
+<article class="product-card" data-category="timeless"><img src="p3.png" alt="Elegant Crystal Leaf Drop Earrings"><div class="product-info"><div class="category">Timeless Earrings</div><h3>Elegant Crystal Leaf Drop Earrings</h3></div></article>
+<article class="product-card" data-category="timeless"><img src="p4.png" alt="Floral Crystal Drop Earrings"><div class="product-info"><div class="category">Timeless Earrings</div><h3>Floral Crystal Drop Earrings</h3></div></article>
+<article class="product-card" data-category="ethnic"><img src="p5.jpeg" alt="Pink Stone Ethnic Earrings"><div class="product-info"><div class="category">Ethnic Earrings</div><h3>Pink Stone Ethnic Earrings</h3></div></article>
+<article class="product-card" data-category="ethnic"><img src="p6.jpeg" alt="Peacock Jhumka Earrings"><div class="product-info"><div class="category">Ethnic Earrings</div><h3>Peacock Jhumka Earrings</h3></div></article>
+<article class="product-card" data-category="oxidised"><img src="p7.jpeg" alt="Multicolour Oxidised Earrings"><div class="product-info"><div class="category">Oxidised Earrings</div><h3>Multicolour Oxidised Earrings</h3></div></article>
+<article class="product-card" data-category="oxidised"><img src="p8.jpeg" alt="Oxidised Statement Set"><div class="product-info"><div class="category">Oxidised Earrings</div><h3>Oxidised Statement Set</h3></div></article>
+<article class="product-card" data-category="oxidised"><img src="p9.jpeg" alt="Traditional Oxidised Set"><div class="product-info"><div class="category">Oxidised Earrings</div><h3>Traditional Oxidised Set</h3></div></article>
+<article class="product-card" data-category="ad"><img src="p10.png" alt="Crystal & Gold Statement Earrings"><div class="product-info"><div class="category">American Diamond</div><h3>Crystal & Gold Statement Earrings</h3></div></article>
+<article class="product-card" data-category="necklace"><img src="p11.jpeg" alt="Butterfly Pendant Necklace"><div class="product-info"><div class="category">Anti-Tarnish Necklaces</div><h3>Butterfly Pendant Necklace</h3></div></article>
+<article class="product-card" data-category="necklace"><img src="p12.jpeg" alt="Heart Pendant Necklace"><div class="product-info"><div class="category">Anti-Tarnish Necklaces</div><h3>Heart Pendant Necklace</h3></div></article>
+<article class="product-card" data-category="necklace"><img src="p13.jpeg" alt="Bow Pendant Necklace"><div class="product-info"><div class="category">Anti-Tarnish Necklaces</div><h3>Bow Pendant Necklace</h3></div></article>
+<article class="product-card" data-category="necklace"><img src="p14.jpeg" alt="Black Stone Bracelet"><div class="product-info"><div class="category">Anti-Tarnish Necklaces</div><h3>Black Stone Bracelet</h3></div></article>
+<article class="product-card" data-category="necklace"><img src="p15.jpeg" alt="Pink Stone Bracelet"><div class="product-info"><div class="category">Anti-Tarnish Necklaces</div><h3>Pink Stone Bracelet</h3></div></article></div>
+    <div id="catalogue-empty" class="catalogue-empty" style="display:none">This collection will be added next. Your uploaded image batches remain safely stored in the repository.</div>
+  </div>
+</section>
 
-  </footer>
+<section id="story" class="story section">
+  <div class="container story-grid">
+    <div>
+      <div class="eyebrow" style="letter-spacing:4px;font-size:11px;color:#e4bd7d">The Oh! Shine philosophy</div>
+      <h2>Made to make<br>you shine.</h2>
+      <p>At Oh! Shine, jewellery is more than an accessory. It is the little detail that completes your look, lifts your mood and makes an ordinary day feel extraordinary.</p>
+      <div class="quote">“The shine was always within you.”</div>
+    </div>
+    <div class="values">
+      <div class="value"><strong>Everyday</strong><p>Beautiful pieces made for effortless daily styling.</p></div>
+      <div class="value"><strong>Timeless</strong><p>Classic and contemporary designs that stay in style.</p></div>
+      <div class="value"><strong>Special</strong><p>Statement pieces for celebrations and memorable moments.</p></div>
+    </div>
+  </div>
+</section>
 
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="eyebrow">Let's connect</div>
+    <h2>Find your shine.</h2>
+    <p>Want to order a piece or ask about availability? Contact Oh! Shine directly.</p>
+    <div class="contact-buttons">
+      <!-- Replace YOUR_WHATSAPP_NUMBER with your WhatsApp number, including country code, e.g. 919876543210 -->
+      <a class="btn" href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hello%20Oh%20Shine%2C%20I%20would%20like%20to%20know%20more%20about%20your%20jewellery." target="_blank" rel="noopener">Order on WhatsApp</a>
+      <a class="btn alt" href="https://www.instagram.com/ohshine_jewellery/" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn alt" href="https://www.youtube.com/channel/UCRIg6CRYSsBjYlVrfBsVDFg" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </div>
+</section>
+</main>
 
-  <!-- ================= JAVASCRIPT ================= -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="brand">OH SHINE</div>
+    <p>© <span id="year"></span> Oh! Shine. Premium Jewellery.</p>
+  </div>
+</footer>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+document.querySelectorAll(".nav-links a").forEach(a => a.addEventListener("click", () => document.querySelector(".nav-links").classList.remove("open")));
 
-  <script src="js/script.js"></script>
-
-  <script>
-
-    /* Mobile navigation */
-
-    const menuButton = document.querySelector(".menu-button");
-    const navigation = document.querySelector(".main-nav");
-
-    if (menuButton && navigation) {
-
-      menuButton.addEventListener("click", function () {
-
-        const open = navigation.classList.toggle("open");
-
-        menuButton.setAttribute(
-          "aria-expanded",
-          open ? "true" : "false"
-        );
-
-      });
-
-    }
-
-
-    /* Collection filtering */
-
-    const filterButtons =
-      document.querySelectorAll(".filter-button");
-
-    const productCards =
-      document.querySelectorAll(".product-card");
-
-    filterButtons.forEach(function(button) {
-
-      button.addEventListener("click", function() {
-
-        filterButtons.forEach(function(item) {
-          item.classList.remove("active");
-        });
-
-        button.classList.add("active");
-
-        const category =
-          button.getAttribute("data-category");
-
-        productCards.forEach(function(card) {
-
-          if (
-            category === "all" ||
-            card.getAttribute("data-category") === category
-          ) {
-            card.style.display = "";
-          } else {
-            card.style.display = "none";
-          }
-
-        });
-
-      });
-
-    });
-
-  </script>
-
+function openCatalogue(category){document.getElementById('catalogue').classList.add('show');filterCatalogue(category);document.getElementById('catalogue').scrollIntoView({behavior:'smooth'});}
+function closeCatalogue(){document.getElementById('catalogue').classList.remove('show');document.getElementById('collections').scrollIntoView({behavior:'smooth'});}
+function filterCatalogue(category){const cards=[...document.querySelectorAll('.product-card')];let shown=0;cards.forEach(c=>{const ok=c.dataset.category===category;c.style.display=ok?'block':'none';if(ok)shown++;});document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b.dataset.filter===category));document.getElementById('catalogue-empty').style.display=shown?'none':'block';const titles={daily:'Dailywear Earrings',ethnic:'Ethnic Earrings',ad:'American Diamond',timeless:'Timeless Earrings',oxidised:'Oxidised Necklace & Earrings Set',necklace:'Anti-Tarnish Necklaces',rings:'Finger Rings',hair:'Hair Accessories',bangles:'Kashmiri Bangles'};document.getElementById('catalogue-title').textContent=titles[category]||'Our Products';}
+document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>filterCatalogue(b.dataset.filter)));
+</script>
 </body>
 </html>
