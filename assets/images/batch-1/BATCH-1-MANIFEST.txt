@@ -1,11 +1,11 @@
-OH! SHINE — BATCH 1 CLEAN IMAGE SET
-7 uploaded source images resized/compressed to WebP.
-Target: max 1400 px longest side; quality 82.
+OH! SHINE — BATCH 1
+Format: JPG/JPEG
+7 unique product images, resized for GitHub/web use.
 
-batch-1-earrings-01.webp | 1144x1400 | 212.5 KB | source 0.29 MB
-batch-1-earrings-02.webp | 788x1400 | 118.7 KB | source 0.17 MB
-batch-1-earrings-03.webp | 931x1400 | 102.3 KB | source 0.15 MB
-batch-1-earrings-04.webp | 931x1400 | 96.0 KB | source 0.14 MB
-batch-1-earrings-05.webp | 931x1400 | 105.0 KB | source 0.15 MB
-batch-1-earrings-06.webp | 931x1400 | 92.3 KB | source 0.14 MB
-batch-1-earrings-07.webp | 931x1400 | 106.8 KB | source 0.15 MB
+batch-1-earrings-01.jpg
+batch-1-earrings-02.jpg
+batch-1-earrings-03.jpg
+batch-1-earrings-04.jpg
+batch-1-earrings-05.jpg
+batch-1-earrings-06.jpg
+batch-1-earrings-07.jpg
