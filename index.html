@@ -107,35 +107,45 @@ footer{text-align:center;padding:28px;background:#542d17;color:#fff4e7;font-size
 @media(max-width:700px){.oh-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
 </style>
 
-<style id="ohshine-logo-size-only">
-/* Logo size adjustment only — all other website elements remain unchanged */
-header img[alt*="logo" i],
-header img[src^="data:image"],
-.logo img,
-.brand-logo img,
-img[alt*="OH SHINE" i] {
-  width: min(380px, 82vw) !important;
-  max-width: 82vw !important;
-  height: auto !important;
-}
-</style>
 
-<style id="ohshine-brand-line-style">
-.ohshine-brand-line{
+
+
+<style id="ohshine-final-brand-style">
+/* Compact centered luxury branding — does not interfere with collection images */
+.ohshine-brand-block{
+  width:100%;
   text-align:center;
-  font-family:Georgia, "Times New Roman", serif;
-  font-size:18px;
-  letter-spacing:3px;
+  margin:4px auto 12px;
+  line-height:1;
+  position:relative;
+  z-index:5;
+}
+.ohshine-brand-name{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(22px,3vw,34px);
   font-weight:600;
-  margin:6px auto 4px;
+  letter-spacing:5px;
   color:#6a3b20;
+  margin:0;
+}
+.ohshine-brand-subtitle{
+  margin:7px 0 0;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:clamp(9px,1.1vw,12px);
+  font-weight:600;
+  letter-spacing:4px;
+  color:#8b6044;
 }
 </style>
 </head>
 
 <body>
 <header class="header">
-<div class="ohshine-brand-line">OH SHINE, PREMIUM JEWELRY</div>
+<div class="ohshine-brand-block" aria-label="OH SHINE PREMIUM JEWELRY">
+  <div class="ohshine-brand-name">OH SHINE</div>
+  <div class="ohshine-brand-subtitle">PREMIUM JEWELRY</div>
+</div>
+
 
   <nav class="nav">
     <a href="#home" class="logo-wrap" aria-label="Oh Shine home">
