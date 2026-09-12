@@ -93,6 +93,19 @@ footer{text-align:center;padding:28px;background:#542d17;color:#fff4e7;font-size
  .products{grid-template-columns:repeat(2,1fr)}.section-title{font-size:42px}
 }
 </style>
+
+<style>
+/* OH SHINE — static batch separation: no JS, no shared catalogue state */
+.oh-batch-panel{display:none}
+.oh-batch-panel:target{display:block}
+.oh-batch-heading{text-align:center;max-width:900px;margin:0 auto 28px}
+.oh-batch-heading h2{margin:6px 0}
+.oh-batch-heading p{margin:4px 0 14px}
+.oh-back{display:inline-block;padding:10px 18px;border:1px solid #8b6044;border-radius:24px;text-decoration:none;color:#5a3018}
+.oh-products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px}
+.oh-products .product img{width:100%;height:auto;display:block;object-fit:contain;background:#fff}
+@media(max-width:700px){.oh-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+</style>
 </head>
 
 <body>
@@ -123,7 +136,63 @@ footer{text-align:center;padding:28px;background:#542d17;color:#fff4e7;font-size
 </section>
 
 <section id="collections" class="collections">
-  <div class="grid" id="collectionGrid"></div>
+  <div class="grid" id="collectionGrid">
+<article class="card">
+  <a href="#catalogue-batch1">
+    <div class="visual"><img src="assets/images/batch-1/batch-1-earrings-01.jpg" alt="Ethnic Earrings"><span class="badge">BATCH 1</span></div>
+    <div class="card-body"><h2>Ethnic Earrings</h2><p>Traditional meets style</p><span class="explore">EXPLORE <b>→</b></span></div>
+  </a>
+</article>
+
+<article class="card">
+  <a href="#catalogue-batch2">
+    <div class="visual"><img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-01.jpg" alt="Oxidised Necklace &amp; Earrings"><span class="badge">BATCH 2</span></div>
+    <div class="card-body"><h2>Oxidised Necklace &amp; Earrings</h2><p>Bold · unique · effortlessly stylish</p><span class="explore">EXPLORE <b>→</b></span></div>
+  </a>
+</article>
+
+<article class="card">
+  <a href="#catalogue-batch3">
+    <div class="visual"><img src="assets/images/batch-3-earrings/batch-3-jewellery-01.jpg" alt="Anti-Tarnish Earrings"><span class="badge">BATCH 3</span></div>
+    <div class="card-body"><h2>Anti-Tarnish Earrings</h2><p>Elegant shine · lasting beauty</p><span class="explore">EXPLORE <b>→</b></span></div>
+  </a>
+</article>
+
+<article class="card">
+  <a href="#catalogue-batch4">
+    <div class="visual"><img src="assets/images/batch-4/batch4_01.jpg" alt="Anti-Tarnish Bangles"><span class="badge">BATCH 4</span></div>
+    <div class="card-body"><h2>Anti-Tarnish Bangles</h2><p>Timeless shine · everyday elegance</p><span class="explore">EXPLORE <b>→</b></span></div>
+  </a>
+</article>
+
+<article class="card">
+  <a href="#catalogue-batch5">
+    <div class="visual"><img src="assets/images/batch-5/batch5_01.jpg" alt="Anti-Tarnish Bracelets"><span class="badge">BATCH 5</span></div>
+    <div class="card-body"><h2>Anti-Tarnish Bracelets</h2><p>Delicate sparkle · effortless style</p><span class="explore">EXPLORE <b>→</b></span></div>
+  </a>
+</article>
+
+<article class="card">
+  <a href="#catalogue-batch6">
+    <div class="visual"><img src="assets/images/batch-6/batch6_01.jpg" alt="Anti-Tarnish Necklace"><span class="badge">BATCH 6</span></div>
+    <div class="card-body"><h2>Anti-Tarnish Necklace</h2><p>Elegant statement · lasting shine</p><span class="explore">EXPLORE <b>→</b></span></div>
+  </a>
+</article>
+
+<article class="card">
+  <a href="#catalogue-batch7">
+    <div class="visual"><img src="assets/images/batch-7-crystal-earrings/crystal-earrings-01.jpg" alt="Crystal Earrings"><span class="badge">BATCH 7</span></div>
+    <div class="card-body"><h2>Crystal Earrings</h2><p>Brilliant · graceful · timeless</p><span class="explore">EXPLORE <b>→</b></span></div>
+  </a>
+</article>
+
+<article class="card">
+  <a href="#catalogue-batch8">
+    <div class="visual"><img src="assets/images/batch-8-kashmiri-bangles/kashmiri-bangles-01.jpg" alt="Kashmiri Bangles"><span class="badge">BATCH 8</span></div>
+    <div class="card-body"><h2>Kashmiri Bangles</h2><p>A touch of tradition</p><span class="explore">EXPLORE <b>→</b></span></div>
+  </a>
+</article>
+</div>
 </section>
 
 <div class="motto">Because You Deserve to Shine ♡</div>
@@ -134,80 +203,429 @@ footer{text-align:center;padding:28px;background:#542d17;color:#fff4e7;font-size
  <div class="benefit"><div class="bicon">✧</div><strong>Jewellery That</strong><small>Makes you smile</small></div>
 </section>
 
-<section class="catalogue" id="catalogue">
- <h2 class="section-title">Shop the Catalogue</h2>
- <p class="section-sub">Explore the latest pieces from Oh Shine.</p>
- <div class="filters" id="filters"></div>
- <div class="products" id="products">
-<article class="product" data-category="Ethnic Earrings"><img src="assets/images/batch-1/batch-1-earrings-01.jpg" alt="Ethnic Earrings - batch-1-earrings-01.jpg" loading="lazy"><div class="product-info"><h3>Ethnic Earrings</h3><p>batch-1-earrings-01</p></div></article>
-<article class="product" data-category="Ethnic Earrings"><img src="assets/images/batch-1/batch-1-earrings-02.jpg" alt="Ethnic Earrings - batch-1-earrings-02.jpg" loading="lazy"><div class="product-info"><h3>Ethnic Earrings</h3><p>batch-1-earrings-02</p></div></article>
-<article class="product" data-category="Ethnic Earrings"><img src="assets/images/batch-1/batch-1-earrings-03.jpg" alt="Ethnic Earrings - batch-1-earrings-03.jpg" loading="lazy"><div class="product-info"><h3>Ethnic Earrings</h3><p>batch-1-earrings-03</p></div></article>
-<article class="product" data-category="Ethnic Earrings"><img src="assets/images/batch-1/batch-1-earrings-04.jpg" alt="Ethnic Earrings - batch-1-earrings-04.jpg" loading="lazy"><div class="product-info"><h3>Ethnic Earrings</h3><p>batch-1-earrings-04</p></div></article>
-<article class="product" data-category="Ethnic Earrings"><img src="assets/images/batch-1/batch-1-earrings-05.jpg" alt="Ethnic Earrings - batch-1-earrings-05.jpg" loading="lazy"><div class="product-info"><h3>Ethnic Earrings</h3><p>batch-1-earrings-05</p></div></article>
-<article class="product" data-category="Ethnic Earrings"><img src="assets/images/batch-1/batch-1-earrings-06.jpg" alt="Ethnic Earrings - batch-1-earrings-06.jpg" loading="lazy"><div class="product-info"><h3>Ethnic Earrings</h3><p>batch-1-earrings-06</p></div></article>
-<article class="product" data-category="Ethnic Earrings"><img src="assets/images/batch-1/batch-1-earrings-07.jpg" alt="Ethnic Earrings - batch-1-earrings-07.jpg" loading="lazy"><div class="product-info"><h3>Ethnic Earrings</h3><p>batch-1-earrings-07</p></div></article>
-<article class="product" data-category="Oxidised Necklace &amp; Earrings"><img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-01.jpg" alt="Oxidised Necklace &amp; Earrings - batch-2-jewellery-01.jpg" loading="lazy"><div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>batch-2-jewellery-01</p></div></article>
-<article class="product" data-category="Oxidised Necklace &amp; Earrings"><img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-02.jpg" alt="Oxidised Necklace &amp; Earrings - batch-2-jewellery-02.jpg" loading="lazy"><div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>batch-2-jewellery-02</p></div></article>
-<article class="product" data-category="Oxidised Necklace &amp; Earrings"><img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-03.jpg" alt="Oxidised Necklace &amp; Earrings - batch-2-jewellery-03.jpg" loading="lazy"><div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>batch-2-jewellery-03</p></div></article>
-<article class="product" data-category="Oxidised Necklace &amp; Earrings"><img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-04.jpg" alt="Oxidised Necklace &amp; Earrings - batch-2-jewellery-04.jpg" loading="lazy"><div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>batch-2-jewellery-04</p></div></article>
-<article class="product" data-category="Oxidised Necklace &amp; Earrings"><img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-05.jpg" alt="Oxidised Necklace &amp; Earrings - batch-2-jewellery-05.jpg" loading="lazy"><div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>batch-2-jewellery-05</p></div></article>
-<article class="product" data-category="Oxidised Necklace &amp; Earrings"><img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-06.jpg" alt="Oxidised Necklace &amp; Earrings - batch-2-jewellery-06.jpg" loading="lazy"><div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>batch-2-jewellery-06</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-01.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-01.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-01</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-02.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-02.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-02</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-03.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-03.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-03</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-04.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-04.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-04</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-05.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-05.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-05</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-06.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-06.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-06</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-07.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-07.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-07</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-08.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-08.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-08</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-09.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-09.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-09</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-10.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-10.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-10</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-11.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-11.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-11</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-12.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-12.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-12</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-13.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-13.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-13</p></div></article>
-<article class="product" data-category="Anti-Tarnish Earrings"><img src="assets/images/batch-3-earrings/batch-3-jewellery-14.jpg" alt="Anti-Tarnish Earrings - batch-3-jewellery-14.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>batch-3-jewellery-14</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bangles"><img src="assets/images/batch-4/batch4_01.jpg" alt="Anti-Tarnish Bangles - batch4_01.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>batch4_01</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bangles"><img src="assets/images/batch-4/batch4_02.jpg" alt="Anti-Tarnish Bangles - batch4_02.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>batch4_02</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bangles"><img src="assets/images/batch-4/batch4_03.jpg" alt="Anti-Tarnish Bangles - batch4_03.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>batch4_03</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bangles"><img src="assets/images/batch-4/batch4_04.jpg" alt="Anti-Tarnish Bangles - batch4_04.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>batch4_04</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bangles"><img src="assets/images/batch-4/batch4_05.jpg" alt="Anti-Tarnish Bangles - batch4_05.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>batch4_05</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bangles"><img src="assets/images/batch-4/batch4_06.jpg" alt="Anti-Tarnish Bangles - batch4_06.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>batch4_06</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bangles"><img src="assets/images/batch-4/batch4_07.jpg" alt="Anti-Tarnish Bangles - batch4_07.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>batch4_07</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bangles"><img src="assets/images/batch-4/batch4_08.jpg" alt="Anti-Tarnish Bangles - batch4_08.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>batch4_08</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bangles"><img src="assets/images/batch-4/batch4_09.jpg" alt="Anti-Tarnish Bangles - batch4_09.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>batch4_09</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bangles"><img src="assets/images/batch-4/batch4_10.jpg" alt="Anti-Tarnish Bangles - batch4_10.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>batch4_10</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bangles"><img src="assets/images/batch-4/batch4_11.jpg" alt="Anti-Tarnish Bangles - batch4_11.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>batch4_11</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bracelets"><img src="assets/images/batch-5/batch5_01.jpg" alt="Anti-Tarnish Bracelets - batch5_01.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>batch5_01</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bracelets"><img src="assets/images/batch-5/batch5_02.jpg" alt="Anti-Tarnish Bracelets - batch5_02.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>batch5_02</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bracelets"><img src="assets/images/batch-5/batch5_03.jpg" alt="Anti-Tarnish Bracelets - batch5_03.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>batch5_03</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bracelets"><img src="assets/images/batch-5/batch5_04.jpg" alt="Anti-Tarnish Bracelets - batch5_04.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>batch5_04</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bracelets"><img src="assets/images/batch-5/batch5_05.jpg" alt="Anti-Tarnish Bracelets - batch5_05.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>batch5_05</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bracelets"><img src="assets/images/batch-5/batch5_06.jpg" alt="Anti-Tarnish Bracelets - batch5_06.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>batch5_06</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bracelets"><img src="assets/images/batch-5/batch5_07.jpg" alt="Anti-Tarnish Bracelets - batch5_07.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>batch5_07</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bracelets"><img src="assets/images/batch-5/batch5_08.jpg" alt="Anti-Tarnish Bracelets - batch5_08.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>batch5_08</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bracelets"><img src="assets/images/batch-5/batch5_09.jpg" alt="Anti-Tarnish Bracelets - batch5_09.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>batch5_09</p></div></article>
-<article class="product" data-category="Anti-Tarnish Bracelets"><img src="assets/images/batch-5/batch5_10.jpg" alt="Anti-Tarnish Bracelets - batch5_10.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>batch5_10</p></div></article>
-<article class="product" data-category="Anti-Tarnish Necklace"><img src="assets/images/batch-6/batch6_01.jpg" alt="Anti-Tarnish Necklace - batch6_01.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>batch6_01</p></div></article>
-<article class="product" data-category="Anti-Tarnish Necklace"><img src="assets/images/batch-6/batch6_02.jpg" alt="Anti-Tarnish Necklace - batch6_02.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>batch6_02</p></div></article>
-<article class="product" data-category="Anti-Tarnish Necklace"><img src="assets/images/batch-6/batch6_03.jpg" alt="Anti-Tarnish Necklace - batch6_03.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>batch6_03</p></div></article>
-<article class="product" data-category="Anti-Tarnish Necklace"><img src="assets/images/batch-6/batch6_04.jpg" alt="Anti-Tarnish Necklace - batch6_04.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>batch6_04</p></div></article>
-<article class="product" data-category="Anti-Tarnish Necklace"><img src="assets/images/batch-6/batch6_05.jpg" alt="Anti-Tarnish Necklace - batch6_05.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>batch6_05</p></div></article>
-<article class="product" data-category="Anti-Tarnish Necklace"><img src="assets/images/batch-6/batch6_06.jpg" alt="Anti-Tarnish Necklace - batch6_06.jpg" loading="lazy"><div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>batch6_06</p></div></article>
-<article class="product" data-category="Crystal Earrings"><img src="assets/images/batch-7-crystal-earrings/crystal-earrings-01.jpg" alt="Crystal Earrings - crystal-earrings-01.jpg" loading="lazy"><div class="product-info"><h3>Crystal Earrings</h3><p>crystal-earrings-01</p></div></article>
-<article class="product" data-category="Crystal Earrings"><img src="assets/images/batch-7-crystal-earrings/crystal-earrings-02.jpg" alt="Crystal Earrings - crystal-earrings-02.jpg" loading="lazy"><div class="product-info"><h3>Crystal Earrings</h3><p>crystal-earrings-02</p></div></article>
-<article class="product" data-category="Crystal Earrings"><img src="assets/images/batch-7-crystal-earrings/crystal-earrings-03.jpg" alt="Crystal Earrings - crystal-earrings-03.jpg" loading="lazy"><div class="product-info"><h3>Crystal Earrings</h3><p>crystal-earrings-03</p></div></article>
-<article class="product" data-category="Crystal Earrings"><img src="assets/images/batch-7-crystal-earrings/crystal-earrings-04.jpg" alt="Crystal Earrings - crystal-earrings-04.jpg" loading="lazy"><div class="product-info"><h3>Crystal Earrings</h3><p>crystal-earrings-04</p></div></article>
-<article class="product" data-category="Crystal Earrings"><img src="assets/images/batch-7-crystal-earrings/crystal-earrings-05.jpg" alt="Crystal Earrings - crystal-earrings-05.jpg" loading="lazy"><div class="product-info"><h3>Crystal Earrings</h3><p>crystal-earrings-05</p></div></article>
-<article class="product" data-category="Crystal Earrings"><img src="assets/images/batch-7-crystal-earrings/crystal-earrings-06.jpg" alt="Crystal Earrings - crystal-earrings-06.jpg" loading="lazy"><div class="product-info"><h3>Crystal Earrings</h3><p>crystal-earrings-06</p></div></article>
-<article class="product" data-category="Crystal Earrings"><img src="assets/images/batch-7-crystal-earrings/crystal-earrings-07.jpg" alt="Crystal Earrings - crystal-earrings-07.jpg" loading="lazy"><div class="product-info"><h3>Crystal Earrings</h3><p>crystal-earrings-07</p></div></article>
-<article class="product" data-category="Crystal Earrings"><img src="assets/images/batch-7-crystal-earrings/crystal-earrings-08.jpg" alt="Crystal Earrings - crystal-earrings-08.jpg" loading="lazy"><div class="product-info"><h3>Crystal Earrings</h3><p>crystal-earrings-08</p></div></article>
-<article class="product" data-category="Kashmiri Bangles"><img src="assets/images/batch-8-kashmiri-bangles/kashmiri-bangles-01.jpg" alt="Kashmiri Bangles - kashmiri-bangles-01.jpg" loading="lazy"><div class="product-info"><h3>Kashmiri Bangles</h3><p>kashmiri-bangles-01</p></div></article>
-<article class="product" data-category="Kashmiri Bangles"><img src="assets/images/batch-8-kashmiri-bangles/kashmiri-bangles-02.jpg" alt="Kashmiri Bangles - kashmiri-bangles-02.jpg" loading="lazy"><div class="product-info"><h3>Kashmiri Bangles</h3><p>kashmiri-bangles-02</p></div></article>
-<article class="product" data-category="Kashmiri Bangles"><img src="assets/images/batch-8-kashmiri-bangles/kashmiri-bangles-03.jpg" alt="Kashmiri Bangles - kashmiri-bangles-03.jpg" loading="lazy"><div class="product-info"><h3>Kashmiri Bangles</h3><p>kashmiri-bangles-03</p></div></article>
-<article class="product" data-category="Kashmiri Bangles"><img src="assets/images/batch-8-kashmiri-bangles/kashmiri-bangles-04.jpg" alt="Kashmiri Bangles - kashmiri-bangles-04.jpg" loading="lazy"><div class="product-info"><h3>Kashmiri Bangles</h3><p>kashmiri-bangles-04</p></div></article>
-<article class="product" data-category="Kashmiri Bangles"><img src="assets/images/batch-8-kashmiri-bangles/kashmiri-bangles-05.jpg" alt="Kashmiri Bangles - kashmiri-bangles-05.jpg" loading="lazy"><div class="product-info"><h3>Kashmiri Bangles</h3><p>kashmiri-bangles-05</p></div></article>
+
+<section id="catalogue" class="catalogue-section">
+  <div class="oh-catalogue-default">
+    <div class="section-head"><p class="eyebrow">OH SHINE</p><h2>Explore Our Collections</h2><p>Choose a collection above to view its products.</p></div>
+  </div>
+  
+<section class="oh-batch-panel" id="catalogue-batch1">
+  <div class="oh-batch-heading">
+    <p class="eyebrow">BATCH 1</p>
+    <h2>Ethnic Earrings</h2>
+    <p>Traditional meets style</p>
+    <a class="oh-back" href="#collections">← View All Collections</a>
+  </div>
+  <div class="products oh-products">
+<article class="product">
+  <img src="assets/images/batch-1/batch-1-earrings-01.jpg" alt="Ethnic Earrings 1">
+  <div class="product-info"><h3>Ethnic Earrings</h3><p>BATCH 1 · 1</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-1/batch-1-earrings-02.jpg" alt="Ethnic Earrings 2">
+  <div class="product-info"><h3>Ethnic Earrings</h3><p>BATCH 1 · 2</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-1/batch-1-earrings-03.jpg" alt="Ethnic Earrings 3">
+  <div class="product-info"><h3>Ethnic Earrings</h3><p>BATCH 1 · 3</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-1/batch-1-earrings-04.jpg" alt="Ethnic Earrings 4">
+  <div class="product-info"><h3>Ethnic Earrings</h3><p>BATCH 1 · 4</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-1/batch-1-earrings-05.jpg" alt="Ethnic Earrings 5">
+  <div class="product-info"><h3>Ethnic Earrings</h3><p>BATCH 1 · 5</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-1/batch-1-earrings-06.jpg" alt="Ethnic Earrings 6">
+  <div class="product-info"><h3>Ethnic Earrings</h3><p>BATCH 1 · 6</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-1/batch-1-earrings-07.jpg" alt="Ethnic Earrings 7">
+  <div class="product-info"><h3>Ethnic Earrings</h3><p>BATCH 1 · 7</p></div>
+</article>
 </div>
 </section>
+
+<section class="oh-batch-panel" id="catalogue-batch2">
+  <div class="oh-batch-heading">
+    <p class="eyebrow">BATCH 2</p>
+    <h2>Oxidised Necklace &amp; Earrings</h2>
+    <p>Bold · unique · effortlessly stylish</p>
+    <a class="oh-back" href="#collections">← View All Collections</a>
+  </div>
+  <div class="products oh-products">
+<article class="product">
+  <img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-01.jpg" alt="Oxidised Necklace &amp; Earrings 1">
+  <div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>BATCH 2 · 1</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-02.jpg" alt="Oxidised Necklace &amp; Earrings 2">
+  <div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>BATCH 2 · 2</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-03.jpg" alt="Oxidised Necklace &amp; Earrings 3">
+  <div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>BATCH 2 · 3</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-04.jpg" alt="Oxidised Necklace &amp; Earrings 4">
+  <div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>BATCH 2 · 4</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-05.jpg" alt="Oxidised Necklace &amp; Earrings 5">
+  <div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>BATCH 2 · 5</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-2-oxidised-necklace-set/batch-2-jewellery-06.jpg" alt="Oxidised Necklace &amp; Earrings 6">
+  <div class="product-info"><h3>Oxidised Necklace &amp; Earrings</h3><p>BATCH 2 · 6</p></div>
+</article>
+</div>
+</section>
+
+<section class="oh-batch-panel" id="catalogue-batch3">
+  <div class="oh-batch-heading">
+    <p class="eyebrow">BATCH 3</p>
+    <h2>Anti-Tarnish Earrings</h2>
+    <p>Elegant shine · lasting beauty</p>
+    <a class="oh-back" href="#collections">← View All Collections</a>
+  </div>
+  <div class="products oh-products">
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-01.jpg" alt="Anti-Tarnish Earrings 1">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 1</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-02.jpg" alt="Anti-Tarnish Earrings 2">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 2</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-03.jpg" alt="Anti-Tarnish Earrings 3">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 3</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-04.jpg" alt="Anti-Tarnish Earrings 4">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 4</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-05.jpg" alt="Anti-Tarnish Earrings 5">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 5</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-06.jpg" alt="Anti-Tarnish Earrings 6">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 6</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-07.jpg" alt="Anti-Tarnish Earrings 7">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 7</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-08.jpg" alt="Anti-Tarnish Earrings 8">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 8</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-09.jpg" alt="Anti-Tarnish Earrings 9">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 9</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-10.jpg" alt="Anti-Tarnish Earrings 10">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 10</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-11.jpg" alt="Anti-Tarnish Earrings 11">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 11</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-12.jpg" alt="Anti-Tarnish Earrings 12">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 12</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-13.jpg" alt="Anti-Tarnish Earrings 13">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 13</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-3-earrings/batch-3-jewellery-14.jpg" alt="Anti-Tarnish Earrings 14">
+  <div class="product-info"><h3>Anti-Tarnish Earrings</h3><p>BATCH 3 · 14</p></div>
+</article>
+</div>
+</section>
+
+<section class="oh-batch-panel" id="catalogue-batch4">
+  <div class="oh-batch-heading">
+    <p class="eyebrow">BATCH 4</p>
+    <h2>Anti-Tarnish Bangles</h2>
+    <p>Timeless shine · everyday elegance</p>
+    <a class="oh-back" href="#collections">← View All Collections</a>
+  </div>
+  <div class="products oh-products">
+<article class="product">
+  <img src="assets/images/batch-4/batch4_01.jpg" alt="Anti-Tarnish Bangles 1">
+  <div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>BATCH 4 · 1</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-4/batch4_02.jpg" alt="Anti-Tarnish Bangles 2">
+  <div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>BATCH 4 · 2</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-4/batch4_03.jpg" alt="Anti-Tarnish Bangles 3">
+  <div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>BATCH 4 · 3</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-4/batch4_04.jpg" alt="Anti-Tarnish Bangles 4">
+  <div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>BATCH 4 · 4</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-4/batch4_05.jpg" alt="Anti-Tarnish Bangles 5">
+  <div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>BATCH 4 · 5</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-4/batch4_06.jpg" alt="Anti-Tarnish Bangles 6">
+  <div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>BATCH 4 · 6</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-4/batch4_07.jpg" alt="Anti-Tarnish Bangles 7">
+  <div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>BATCH 4 · 7</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-4/batch4_08.jpg" alt="Anti-Tarnish Bangles 8">
+  <div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>BATCH 4 · 8</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-4/batch4_09.jpg" alt="Anti-Tarnish Bangles 9">
+  <div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>BATCH 4 · 9</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-4/batch4_10.jpg" alt="Anti-Tarnish Bangles 10">
+  <div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>BATCH 4 · 10</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-4/batch4_11.jpg" alt="Anti-Tarnish Bangles 11">
+  <div class="product-info"><h3>Anti-Tarnish Bangles</h3><p>BATCH 4 · 11</p></div>
+</article>
+</div>
+</section>
+
+<section class="oh-batch-panel" id="catalogue-batch5">
+  <div class="oh-batch-heading">
+    <p class="eyebrow">BATCH 5</p>
+    <h2>Anti-Tarnish Bracelets</h2>
+    <p>Delicate sparkle · effortless style</p>
+    <a class="oh-back" href="#collections">← View All Collections</a>
+  </div>
+  <div class="products oh-products">
+<article class="product">
+  <img src="assets/images/batch-5/batch5_01.jpg" alt="Anti-Tarnish Bracelets 1">
+  <div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>BATCH 5 · 1</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-5/batch5_02.jpg" alt="Anti-Tarnish Bracelets 2">
+  <div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>BATCH 5 · 2</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-5/batch5_03.jpg" alt="Anti-Tarnish Bracelets 3">
+  <div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>BATCH 5 · 3</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-5/batch5_04.jpg" alt="Anti-Tarnish Bracelets 4">
+  <div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>BATCH 5 · 4</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-5/batch5_05.jpg" alt="Anti-Tarnish Bracelets 5">
+  <div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>BATCH 5 · 5</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-5/batch5_06.jpg" alt="Anti-Tarnish Bracelets 6">
+  <div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>BATCH 5 · 6</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-5/batch5_07.jpg" alt="Anti-Tarnish Bracelets 7">
+  <div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>BATCH 5 · 7</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-5/batch5_08.jpg" alt="Anti-Tarnish Bracelets 8">
+  <div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>BATCH 5 · 8</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-5/batch5_09.jpg" alt="Anti-Tarnish Bracelets 9">
+  <div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>BATCH 5 · 9</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-5/batch5_10.jpg" alt="Anti-Tarnish Bracelets 10">
+  <div class="product-info"><h3>Anti-Tarnish Bracelets</h3><p>BATCH 5 · 10</p></div>
+</article>
+</div>
+</section>
+
+<section class="oh-batch-panel" id="catalogue-batch6">
+  <div class="oh-batch-heading">
+    <p class="eyebrow">BATCH 6</p>
+    <h2>Anti-Tarnish Necklace</h2>
+    <p>Elegant statement · lasting shine</p>
+    <a class="oh-back" href="#collections">← View All Collections</a>
+  </div>
+  <div class="products oh-products">
+<article class="product">
+  <img src="assets/images/batch-6/batch6_01.jpg" alt="Anti-Tarnish Necklace 1">
+  <div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>BATCH 6 · 1</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-6/batch6_02.jpg" alt="Anti-Tarnish Necklace 2">
+  <div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>BATCH 6 · 2</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-6/batch6_03.jpg" alt="Anti-Tarnish Necklace 3">
+  <div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>BATCH 6 · 3</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-6/batch6_04.jpg" alt="Anti-Tarnish Necklace 4">
+  <div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>BATCH 6 · 4</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-6/batch6_05.jpg" alt="Anti-Tarnish Necklace 5">
+  <div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>BATCH 6 · 5</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-6/batch6_06.jpg" alt="Anti-Tarnish Necklace 6">
+  <div class="product-info"><h3>Anti-Tarnish Necklace</h3><p>BATCH 6 · 6</p></div>
+</article>
+</div>
+</section>
+
+<section class="oh-batch-panel" id="catalogue-batch7">
+  <div class="oh-batch-heading">
+    <p class="eyebrow">BATCH 7</p>
+    <h2>Crystal Earrings</h2>
+    <p>Brilliant · graceful · timeless</p>
+    <a class="oh-back" href="#collections">← View All Collections</a>
+  </div>
+  <div class="products oh-products">
+<article class="product">
+  <img src="assets/images/batch-7-crystal-earrings/crystal-earrings-01.jpg" alt="Crystal Earrings 1">
+  <div class="product-info"><h3>Crystal Earrings</h3><p>BATCH 7 · 1</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-7-crystal-earrings/crystal-earrings-02.jpg" alt="Crystal Earrings 2">
+  <div class="product-info"><h3>Crystal Earrings</h3><p>BATCH 7 · 2</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-7-crystal-earrings/crystal-earrings-03.jpg" alt="Crystal Earrings 3">
+  <div class="product-info"><h3>Crystal Earrings</h3><p>BATCH 7 · 3</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-7-crystal-earrings/crystal-earrings-04.jpg" alt="Crystal Earrings 4">
+  <div class="product-info"><h3>Crystal Earrings</h3><p>BATCH 7 · 4</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-7-crystal-earrings/crystal-earrings-05.jpg" alt="Crystal Earrings 5">
+  <div class="product-info"><h3>Crystal Earrings</h3><p>BATCH 7 · 5</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-7-crystal-earrings/crystal-earrings-06.jpg" alt="Crystal Earrings 6">
+  <div class="product-info"><h3>Crystal Earrings</h3><p>BATCH 7 · 6</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-7-crystal-earrings/crystal-earrings-07.jpg" alt="Crystal Earrings 7">
+  <div class="product-info"><h3>Crystal Earrings</h3><p>BATCH 7 · 7</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-7-crystal-earrings/crystal-earrings-08.jpg" alt="Crystal Earrings 8">
+  <div class="product-info"><h3>Crystal Earrings</h3><p>BATCH 7 · 8</p></div>
+</article>
+</div>
+</section>
+
+<section class="oh-batch-panel" id="catalogue-batch8">
+  <div class="oh-batch-heading">
+    <p class="eyebrow">BATCH 8</p>
+    <h2>Kashmiri Bangles</h2>
+    <p>A touch of tradition</p>
+    <a class="oh-back" href="#collections">← View All Collections</a>
+  </div>
+  <div class="products oh-products">
+<article class="product">
+  <img src="assets/images/batch-8-kashmiri-bangles/kashmiri-bangles-01.jpg" alt="Kashmiri Bangles 1">
+  <div class="product-info"><h3>Kashmiri Bangles</h3><p>BATCH 8 · 1</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-8-kashmiri-bangles/kashmiri-bangles-02.jpg" alt="Kashmiri Bangles 2">
+  <div class="product-info"><h3>Kashmiri Bangles</h3><p>BATCH 8 · 2</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-8-kashmiri-bangles/kashmiri-bangles-03.jpg" alt="Kashmiri Bangles 3">
+  <div class="product-info"><h3>Kashmiri Bangles</h3><p>BATCH 8 · 3</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-8-kashmiri-bangles/kashmiri-bangles-04.jpg" alt="Kashmiri Bangles 4">
+  <div class="product-info"><h3>Kashmiri Bangles</h3><p>BATCH 8 · 4</p></div>
+</article>
+
+<article class="product">
+  <img src="assets/images/batch-8-kashmiri-bangles/kashmiri-bangles-05.jpg" alt="Kashmiri Bangles 5">
+  <div class="product-info"><h3>Kashmiri Bangles</h3><p>BATCH 8 · 5</p></div>
+</article>
+</div>
+</section>
+
+</section>
+
 
 <section class="story" id="story">
  <div class="eyebrow">Our Story</div>
@@ -223,55 +641,6 @@ footer{text-align:center;padding:28px;background:#542d17;color:#fff4e7;font-size
 </main>
 <footer>© 2026 OH SHINE · JEWELLERY FOR A BRIGHTER YOU</footer>
 
-<script>
-const COLLECTIONS=[
-{id:"ethnic",name:"Ethnic Earrings",batch:"BATCH 1",folder:"batch-1",files:["batch-1-earrings-01.jpg","batch-1-earrings-02.jpg","batch-1-earrings-03.jpg","batch-1-earrings-04.jpg","batch-1-earrings-05.jpg","batch-1-earrings-06.jpg","batch-1-earrings-07.jpg"]},
-{id:"oxidised",name:"Oxidised Necklace & Earrings",batch:"BATCH 2",folder:"batch-2-oxidised-necklace-set",files:["batch-2-jewellery-01.jpg","batch-2-jewellery-02.jpg","batch-2-jewellery-03.jpg","batch-2-jewellery-04.jpg","batch-2-jewellery-05.jpg","batch-2-jewellery-06.jpg"]},
-{id:"anti-earrings",name:"Anti-Tarnish Earrings",batch:"BATCH 3",folder:"batch-3-earrings",files:Array.from({length:14},(_,i)=>`batch-3-jewellery-${String(i+1).padStart(2,"0")}.jpg`)},
-{id:"anti-bangles",name:"Anti-Tarnish Bangles",batch:"BATCH 4",folder:"batch-4",files:Array.from({length:11},(_,i)=>`batch4_${String(i+1).padStart(2,"0")}.jpg`)},
-{id:"anti-bracelets",name:"Anti-Tarnish Bracelets",batch:"BATCH 5",folder:"batch-5",files:Array.from({length:10},(_,i)=>`batch5_${String(i+1).padStart(2,"0")}.jpg`)},
-{id:"anti-necklace",name:"Anti-Tarnish Necklace",batch:"BATCH 6",folder:"batch-6",files:Array.from({length:6},(_,i)=>`batch6_${String(i+1).padStart(2,"0")}.jpg`)},
-{id:"crystal",name:"Crystal Earrings",batch:"BATCH 7",folder:"batch-7-crystal-earrings",files:Array.from({length:8},(_,i)=>`crystal-earrings-${String(i+1).padStart(2,"0")}.jpg`)},
-{id:"kashmiri",name:"Kashmiri Bangles",batch:"BATCH 8",folder:"batch-8-kashmiri-bangles",files:Array.from({length:5},(_,i)=>`kashmiri-bangles-${String(i+1).padStart(2,"0")}.jpg`)}
-];
-const ROOT="https://raw.githubusercontent.com/OHSHINE/oh-shine-new/main/assets/images/";
-const fallback=t=>"data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700"><rect width="100%" height="100%" fill="#eadccf"/><text x="50%" y="48%" text-anchor="middle" font-family="Georgia" font-size="34" fill="#633b24">${t}</text></svg>`);
-const url=c=>f=>ROOT+c.folder+"/"+encodeURIComponent(f);
 
-function cardHTML(c){
- const a=document.createElement("article"); a.className="card";
- a.innerHTML=`<a href="#catalogue"><div class="visual"><img alt="${c.name}"><span class="badge">${c.batch}</span></div><div class="card-body"><h2>${c.name}</h2><p>Premium collection</p><span class="explore">EXPLORE <b>→</b></span></div></a>`;
- const img=a.querySelector("img"), first=url(c)(c.files[0]);
- img.onerror=()=>{img.onerror=null;img.src=fallback(c.name)}; img.src=first;
- a.querySelector("a").onclick=e=>{e.preventDefault();showBatch(c);history.replaceState(null,"","#catalogue")};
- return a;
-}
-function product(c,f,i){
- const el=document.createElement("article"); el.className="product";
- el.innerHTML=`<img loading="lazy" alt="${c.name} ${i+1}"><div class="product-info"><h3>${c.name}</h3><p>${c.batch} · ${i+1}</p></div>`;
- const img=el.querySelector("img"), u=url(c)(f);
- img.onerror=()=>{img.onerror=null;img.src=fallback(c.name)}; img.src=u;
- return el;
-}
-function showBatch(c){
- const box=document.getElementById("products"); if(!box)return;
- const h=document.querySelector("#catalogue h2"); if(h)h.textContent=c.name;
- let b=document.getElementById("backCollections");
- if(!b){b=document.createElement("button");b.id="backCollections";b.textContent="← View All Collections";b.style.cssText="display:block;margin:0 auto 22px;padding:10px 18px;border:1px solid #8b6044;background:transparent;border-radius:22px;color:#633b24;cursor:pointer";document.getElementById("catalogue").insertBefore(b,box)}
- b.onclick=showAll; box.innerHTML="";
- c.files.forEach((f,i)=>box.appendChild(product(c,f,i)));
-}
-function showAll(){
- const box=document.getElementById("products");if(!box)return;
- const h=document.querySelector("#catalogue h2");if(h)h.textContent="Our Catalogue";
- const b=document.getElementById("backCollections");if(b)b.remove();
- box.innerHTML="";
- COLLECTIONS.forEach(c=>c.files.forEach((f,i)=>box.appendChild(product(c,f,i)));
-}
-function toggleMenu(){const n=document.querySelector(".navlinks");if(!n)return;n.style.display=getComputedStyle(n).display==="none"?"flex":""}
-const grid=document.getElementById("collectionGrid");
-if(grid){grid.innerHTML="";COLLECTIONS.forEach(c=>grid.appendChild(cardHTML(c)))}
-showAll();
-</script>
 </body>
 </html>
