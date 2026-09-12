@@ -224,93 +224,54 @@ footer{text-align:center;padding:28px;background:#542d17;color:#fff4e7;font-size
 <footer>© 2026 OH SHINE · JEWELLERY FOR A BRIGHTER YOU</footer>
 
 <script>
-
-const REPO="OHSHINE/oh-shine-new", BRANCH="main";
-
-const batches=[
- {folder:"batch-1",name:"Ethnic Earrings",sub:"Traditional meets style",batch:"BATCH 1"},
- {folder:"batch-2-oxidised-necklace-set",name:"Oxidised Necklace & Earrings",sub:"Bold · unique · effortlessly stylish",batch:"BATCH 2"},
- {folder:"batch-3-earrings",name:"Anti-Tarnish Earrings",sub:"Elegant shine · lasting beauty",batch:"BATCH 3"},
- {folder:"batch-4",name:"Anti-Tarnish Bangles",sub:"Timeless shine · everyday elegance",batch:"BATCH 4"},
- {folder:"batch-5",name:"Anti-Tarnish Bracelets",sub:"Delicate sparkle · effortless style",batch:"BATCH 5"},
- {folder:"batch-6",name:"Anti-Tarnish Necklace",sub:"Elegant statement · lasting shine",batch:"BATCH 6"},
- {folder:"batch-7-crystal-earrings",name:"Crystal Earrings",sub:"Brilliant · graceful · timeless",batch:"BATCH 7"},
- {folder:"batch-8-kashmiri-bangles",name:"Kashmiri Bangles",sub:"A touch of tradition",batch:"BATCH 8"}
+const COLLECTIONS=[
+{id:"ethnic",name:"Ethnic Earrings",batch:"BATCH 1",folder:"batch-1",files:["batch-1-earrings-01.jpg","batch-1-earrings-02.jpg","batch-1-earrings-03.jpg","batch-1-earrings-04.jpg","batch-1-earrings-05.jpg","batch-1-earrings-06.jpg","batch-1-earrings-07.jpg"]},
+{id:"oxidised",name:"Oxidised Necklace & Earrings",batch:"BATCH 2",folder:"batch-2-oxidised-necklace-set",files:["batch-2-jewellery-01.jpg","batch-2-jewellery-02.jpg","batch-2-jewellery-03.jpg","batch-2-jewellery-04.jpg","batch-2-jewellery-05.jpg","batch-2-jewellery-06.jpg"]},
+{id:"anti-earrings",name:"Anti-Tarnish Earrings",batch:"BATCH 3",folder:"batch-3-earrings",files:Array.from({length:14},(_,i)=>`batch-3-jewellery-${String(i+1).padStart(2,"0")}.jpg`)},
+{id:"anti-bangles",name:"Anti-Tarnish Bangles",batch:"BATCH 4",folder:"batch-4",files:Array.from({length:11},(_,i)=>`batch4_${String(i+1).padStart(2,"0")}.jpg`)},
+{id:"anti-bracelets",name:"Anti-Tarnish Bracelets",batch:"BATCH 5",folder:"batch-5",files:Array.from({length:10},(_,i)=>`batch5_${String(i+1).padStart(2,"0")}.jpg`)},
+{id:"anti-necklace",name:"Anti-Tarnish Necklace",batch:"BATCH 6",folder:"batch-6",files:Array.from({length:6},(_,i)=>`batch6_${String(i+1).padStart(2,"0")}.jpg`)},
+{id:"crystal",name:"Crystal Earrings",batch:"BATCH 7",folder:"batch-7-crystal-earrings",files:Array.from({length:8},(_,i)=>`crystal-earrings-${String(i+1).padStart(2,"0")}.jpg`)},
+{id:"kashmiri",name:"Kashmiri Bangles",batch:"BATCH 8",folder:"batch-8-kashmiri-bangles",files:Array.from({length:5},(_,i)=>`kashmiri-bangles-${String(i+1).padStart(2,"0")}.jpg`)}
 ];
+const ROOT="https://raw.githubusercontent.com/OHSHINE/oh-shine-new/main/assets/images/";
+const fallback=t=>"data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700"><rect width="100%" height="100%" fill="#eadccf"/><text x="50%" y="48%" text-anchor="middle" font-family="Georgia" font-size="34" fill="#633b24">${t}</text></svg>`);
+const url=c=>f=>ROOT+c.folder+"/"+encodeURIComponent(f);
 
-function imgCandidates(folder){
-  return [
-    `assets/images/${folder}/`,
-    `https://raw.githubusercontent.com/${REPO}/${BRANCH}/assets/images/${folder}/`
-  ];
+function cardHTML(c){
+ const a=document.createElement("article"); a.className="card";
+ a.innerHTML=`<a href="#catalogue"><div class="visual"><img alt="${c.name}"><span class="badge">${c.batch}</span></div><div class="card-body"><h2>${c.name}</h2><p>Premium collection</p><span class="explore">EXPLORE <b>→</b></span></div></a>`;
+ const img=a.querySelector("img"), first=url(c)(c.files[0]);
+ img.onerror=()=>{img.onerror=null;img.src=fallback(c.name)}; img.src=first;
+ a.querySelector("a").onclick=e=>{e.preventDefault();showBatch(c);history.replaceState(null,"","#catalogue")};
+ return a;
 }
-function fallbackSvg(title){
- return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(
-  `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650"><rect width="100%" height="100%" fill="#ead9c7"/><text x="50%" y="48%" text-anchor="middle" font-family="Georgia" font-size="38" fill="#6a3b20">${title}</text><text x="50%" y="57%" text-anchor="middle" font-family="Arial" font-size="18" fill="#8a6042">Oh Shine Collection</text></svg>`
- );
+function product(c,f,i){
+ const el=document.createElement("article"); el.className="product";
+ el.innerHTML=`<img loading="lazy" alt="${c.name} ${i+1}"><div class="product-info"><h3>${c.name}</h3><p>${c.batch} · ${i+1}</p></div>`;
+ const img=el.querySelector("img"), u=url(c)(f);
+ img.onerror=()=>{img.onerror=null;img.src=fallback(c.name)}; img.src=u;
+ return el;
 }
-async function firstImage(folder){
- try{
-   const r=await fetch(`https://api.github.com/repos/${REPO}/contents/assets/images/${folder}?ref=${BRANCH}`,{headers:{"Accept":"application/vnd.github+json"}});
-   if(!r.ok) throw new Error("folder");
-   const files=await r.json();
-   const valid=files.filter(x=>x.type==="file" && /\.(jpe?g|png|webp)$/i.test(x.name));
-   valid.sort((a,b)=>a.name.localeCompare(b.name,navigator.language,{numeric:true,sensitivity:"base"}));
-   if(valid[0]) return valid[0].download_url;
- }catch(e){}
- return fallbackSvg(folder);
+function showBatch(c){
+ const box=document.getElementById("products"); if(!box)return;
+ const h=document.querySelector("#catalogue h2"); if(h)h.textContent=c.name;
+ let b=document.getElementById("backCollections");
+ if(!b){b=document.createElement("button");b.id="backCollections";b.textContent="← View All Collections";b.style.cssText="display:block;margin:0 auto 22px;padding:10px 18px;border:1px solid #8b6044;background:transparent;border-radius:22px;color:#633b24;cursor:pointer";document.getElementById("catalogue").insertBefore(b,box)}
+ b.onclick=showAll; box.innerHTML="";
+ c.files.forEach((f,i)=>box.appendChild(product(c,f,i)));
 }
-async function buildCollections(){
- const grid=document.getElementById("collectionGrid");
- for(const b of batches){
-   const article=document.createElement("article"); article.className="card";
-   article.innerHTML=`<a href="#catalogue"><div class="visual"><img loading="lazy" alt="${b.name}"><span class="badge">${b.batch}</span></div><div class="card-body"><h2>${b.name}</h2><p>${b.sub}</p><span class="explore">EXPLORE <b>→</b></span></div></a>`;
-   grid.appendChild(article);
-   const image=article.querySelector("img");
-   image.src=await firstImage(b.folder);
- }
+function showAll(){
+ const box=document.getElementById("products");if(!box)return;
+ const h=document.querySelector("#catalogue h2");if(h)h.textContent="Our Catalogue";
+ const b=document.getElementById("backCollections");if(b)b.remove();
+ box.innerHTML="";
+ COLLECTIONS.forEach(c=>c.files.forEach((f,i)=>box.appendChild(product(c,f,i)));
 }
-buildCollections();
-
-const filters=["All","Dailywear Earrings","Ethnic Earrings","American Diamond","Timeless","Oxidised","Necklaces & Bracelets","Finger Rings","Hair Accessories","Kashmiri Bangles"];
-const filterBox=document.getElementById("filters");
-filters.forEach((f,i)=>{
- const btn=document.createElement("button");btn.className="filter"+(i===0?" active":"");btn.textContent=f;
- btn.onclick=()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));btn.classList.add("active");filterProducts(f)};
- filterBox.appendChild(btn);
-});
-
-async function loadCatalogue(){
- const all=[];
- for(const b of batches){
-  try{
-   const r=await fetch(`https://api.github.com/repos/${REPO}/contents/assets/images/${b.folder}?ref=${BRANCH}`);
-   if(!r.ok) continue;
-   const files=await r.json();
-   files.filter(x=>x.type==="file"&&/\.(jpe?g|png|webp)$/i.test(x.name)).forEach(x=>all.push({url:x.download_url,name:x.name,category:b.name}));
-  }catch(e){}
- }
- const p=document.getElementById("products");
- p.innerHTML="";
- all.forEach((x,i)=>{
-   const el=document.createElement("article");el.className="product";el.dataset.category=x.category;
-   el.innerHTML=`<img loading="lazy" src="${x.url}" alt="${x.category} - ${x.name}"><div class="product-info"><h3>${x.category}</h3><p>${x.name}</p></div>`;
-   p.appendChild(el);
- });
- if(!all.length) p.innerHTML="<p style='grid-column:1/-1;text-align:center'>Catalogue images will appear here after the batch folders are available.</p>";
-}
-function filterProducts(f){
- document.querySelectorAll(".product").forEach(p=>p.style.display=(f==="All"||p.dataset.category.toLowerCase().includes(f.toLowerCase()))?"block":"none");
-}
-loadCatalogue();
-
-function toggleMenu(){
- const n=document.querySelector(".navlinks");
- if(getComputedStyle(n).display==="none"){
-   n.style.display="flex";n.style.position="absolute";n.style.top="75px";n.style.left="0";n.style.right="0";
-   n.style.background="rgba(251,243,232,.98)";n.style.flexDirection="column";n.style.padding="20px";n.style.gap="12px";
- }else n.style.display="";
-}
+function toggleMenu(){const n=document.querySelector(".navlinks");if(!n)return;n.style.display=getComputedStyle(n).display==="none"?"flex":""}
+const grid=document.getElementById("collectionGrid");
+if(grid){grid.innerHTML="";COLLECTIONS.forEach(c=>grid.appendChild(cardHTML(c)))}
+showAll();
 </script>
 </body>
 </html>
